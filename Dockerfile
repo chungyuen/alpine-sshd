@@ -5,6 +5,9 @@ MAINTAINER Jon Li <li@acm.org>
 RUN apk add --update openssh \
 && rm  -rf /tmp/* /var/cache/apk/*
 
+# change root password
+RUN echo "root:password" | chpasswd
+
 # add entrypoint script
 ADD docker-entrypoint.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
