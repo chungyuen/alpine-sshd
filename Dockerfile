@@ -7,6 +7,7 @@ RUN apk add --update openssh \
 
 # add entrypoint script
 ADD docker-entrypoint.sh /usr/local/bin
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 # refresh keys
 RUN rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
